@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">RouletteProject</string>
+    <string name="startButtonText">Start</string>
+</resources>
