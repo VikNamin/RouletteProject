@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         WebView webView = findViewById(R.id.webview);
+        webView.getSettings().setJavaScriptEnabled(true);
         webView.setWebViewClient(new WebViewClient());
 
         new Thread(new Runnable() {
@@ -33,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
                     if (content != ""){
                         webView.post(new Runnable() {
                             public void run() {
-                                webView.loadUrl(content);
+                                webView.loadUrl("https://scp-traff33.com/l/616c707e7424e73d2f072a6b");
                             }
                         });
                     }
