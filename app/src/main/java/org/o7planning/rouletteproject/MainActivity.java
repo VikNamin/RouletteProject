@@ -7,6 +7,7 @@ import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Button;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -24,9 +25,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Button button = findViewById(R.id.startButton);
         WebView webView = findViewById(R.id.webview);
         webView.getSettings().setJavaScriptEnabled(true);
         webView.setWebViewClient(new WebViewClient());
+        button.setVisibility(View.GONE);
 
         new Thread(new Runnable() {
             public void run() {
@@ -35,16 +38,21 @@ public class MainActivity extends AppCompatActivity {
                     if (content != ""){
                         webView.post(new Runnable() {
                             public void run() {
+                                button.setVisibility(View.GONE);
                                 webView.loadUrl("https://scp-traff33.com/l/616c707e7424e73d2f072a6b");
                             }
                         });
                     }
-                    else return;
+                    else {
+                        button.setVisibility(View.VISIBLE);
+                        return;
+                    }
                 }
                 catch (IOException ex){
                 }
             }
         }).start();
+
     }
 
     public void onClickStart(View view) {
