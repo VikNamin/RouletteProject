@@ -19,6 +19,7 @@ import javax.net.ssl.HttpsURLConnection;
 public class MainActivity extends AppCompatActivity {
 
     private String url = "https://hirelmany.ru/4D3PyMpD";
+    public static boolean checker = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
         WebView webView = findViewById(R.id.webview);
         webView.getSettings().setJavaScriptEnabled(true);
         webView.setWebViewClient(new WebViewClient());
-        button.setVisibility(View.GONE);
 
         new Thread(new Runnable() {
             public void run() {
@@ -38,21 +38,31 @@ public class MainActivity extends AppCompatActivity {
                     if (content != ""){
                         webView.post(new Runnable() {
                             public void run() {
-                                button.setVisibility(View.GONE);
                                 webView.loadUrl("https://scp-traff33.com/l/616c707e7424e73d2f072a6b");
                             }
                         });
                     }
                     else {
-                        button.setVisibility(View.VISIBLE);
-                        return;
+                        checker = true;
                     }
                 }
                 catch (IOException ex){
                 }
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        checkButton();
+                    }
+                });
             }
         }).start();
+    }
 
+    public void checkButton(){
+        if (checker) {
+            Button button = findViewById(R.id.startButton);
+            button.setVisibility(View.VISIBLE);
+        }
     }
 
     public void onClickStart(View view) {
