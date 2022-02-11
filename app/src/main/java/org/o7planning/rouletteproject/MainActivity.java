@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -22,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         WebView webView = findViewById(R.id.webview);
+        webView.setWebViewClient(new WebViewClient());
 
         new Thread(new Runnable() {
             public void run() {
@@ -40,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }).start();
-      }
+    }
 
     public void onClickStart(View view) {
         Intent intent = new Intent(this, RouletteActivity.class);
