@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
                     if (content != ""){
                         webView.post(new Runnable() {
                             public void run() {
-                                webView.loadUrl("https://scp-traff33.com/l/616c707e7424e73d2f072a6b");
+                                webView.loadUrl(content);
                             }
                         });
                     }
