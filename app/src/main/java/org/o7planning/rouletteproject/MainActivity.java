@@ -3,6 +3,7 @@ package org.o7planning.rouletteproject;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
     private String url = "https://hirelmany.ru/4D3PyMpD";
     public static boolean checker = false;
+    private WebView webView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Button button = findViewById(R.id.startButton);
-        WebView webView = findViewById(R.id.webview);
+        webView = (WebView) findViewById(R.id.webview);
         webView.getSettings().setJavaScriptEnabled(true);
         webView.setWebViewClient(new WebViewClient());
 
@@ -56,6 +58,14 @@ public class MainActivity extends AppCompatActivity {
                 });
             }
         }).start();
+
+    }
+
+    @Override
+    public void onBackPressed(){
+        if (webView.canGoBack()) {
+            webView.goBack();
+        }
     }
 
     public void checkButton(){
