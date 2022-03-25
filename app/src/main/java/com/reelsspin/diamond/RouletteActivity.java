@@ -1,4 +1,4 @@
-package org.o7planning.rouletteproject;
+package com.reelsspin.diamond;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;

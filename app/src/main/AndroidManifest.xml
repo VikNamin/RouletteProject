@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="org.o7planning.rouletteproject">
+    package="com.reelsspin.diamond">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/azikonka"
+        android:icon="@drawable/diamondico"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RouletteProject">
         <activity
-            android:name=".RouletteActivity"
+            android:name="com.reelsspin.diamond.RouletteActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name="com.reelsspin.diamond.MainActivity"
             android:configChanges="orientation|screenSize"
             android:exported="true">
             <intent-filter>

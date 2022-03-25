@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:onClick="onClickSpin"
-    tools:context=".RouletteActivity">
+    tools:context="com.reelsspin.diamond.RouletteActivity">
 
     <TextView
         android:id="@+id/textView"
